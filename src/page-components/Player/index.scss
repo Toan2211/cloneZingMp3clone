@@ -1,0 +1,111 @@
+@import '_setting.scss';
+.player-container{
+    position: fixed;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: #120C1C;
+    height: 90px;
+    color: white;
+    .player{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        .player-info{
+            flex: 1;
+            display: flex;
+            align-items: center;
+            &-img{
+                display: block;
+                height: 60px;
+                border-radius: 4px;
+                margin-right: 10px;
+            }
+            &-name{
+                &-artist{
+                    font-size: 12px;
+                }
+            }
+            &-title{
+                font-size: 16px;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 1;
+                overflow: hidden;
+            }
+        }
+        .player-control {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .handler{
+                display: flex;
+                align-items: center;
+
+                .control-btn {
+                    padding: 5px 10px;
+                    border-radius: 50%;
+                    font-size: 16px;
+                    background-color: transparent;
+                    color: white;
+                    margin: 0 10px;
+                    &:hover{
+                        background-color: hsla(0, 0%, 100%, 0.1);
+                        cursor: pointer;
+                    }
+                    &.play-btn{
+                        font-size: 30px;
+                    }
+                }
+            }
+            .range{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                .audio-progress{
+                    width: 100%;
+                    flex: 1;
+                    margin: 0 10px;
+                }
+                .time{
+                    font-size: 12px;
+                    font-weight: 500;
+
+                }
+            }
+        }
+        .player-options {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            .volume{
+                display: flex;
+                align-items: center;
+                &-button{
+                    background-color: transparent;
+                    width: 40px;
+                    padding: 4px;
+                    margin-right: 6px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    outline: none;
+                    border: 0;
+                    color: white;
+                    &:hover {
+                        filter: brightness(0.9);
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+    }
+
+}
+.active{
+    color: #B258D7 !important;
+}

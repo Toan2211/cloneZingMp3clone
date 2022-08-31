@@ -1,0 +1,37 @@
+@import '_setting.scss';
+.section-container{
+    color: white;
+    width: 100%;
+    display: block;
+    // padding: 10px;
+    .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .section-header-title{
+            font-size: 24px;
+            font-weight: 800;
+            margin: 20px 0 ;
+            
+        }
+        .section-header-btn {
+            background-color: transparent;
+            border: none;
+        }
+        .category-link {
+            color: #ccc;
+            text-decoration: none;
+            span {
+                margin-right: 10px;
+            }
+            &:hover {
+                color: $link-text-hover;
+            }
+        }
+    }
+
+    .section-list{
+        overflow: hidden;
+        height: 230px;
+    }
+}

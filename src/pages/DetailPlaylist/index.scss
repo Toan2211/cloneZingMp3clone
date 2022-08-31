@@ -1,0 +1,70 @@
+@import '_setting.scss';
+.detail-playlist-container{
+    color: white;
+    padding-top: 30px;
+    display: flex;
+    .detail-playlist-info{
+        width: 300px;
+        // flex: 1;
+        position: fixed;
+        .detail-playlist-avatar{
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            .detail-playlist-img {
+                width: 100%;
+                height: auto;
+                transition: transform 0.6s;
+            }
+            .detail-playlist-play {
+                position: absolute;
+                top: 0;
+                height: 100%;
+                width: 100%;
+                font-size: 40px;
+                display: none;
+                align-items: center;
+                justify-content: center;
+                background-color: rgba(0, 0, 0, 0.5);
+                z-index: 5;
+            }
+            &:hover img {
+                transform: scale(1.2);
+            }
+            &:hover .detail-playlist-play {
+                display: flex;
+            }
+        }
+        .detail-playlist-description{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            margin-top: 20px;
+            .detail-playlist-title {
+                font-size: 20px;
+                
+            }
+            .detail-playlist-artists{
+                font-size: 14px;
+                color: #ccc;
+                .detail-playlist-artist-link{
+                    color: #ccc;
+                    text-decoration: none;
+                    &:hover {
+                        text-decoration: underline;
+                        color: $link-text-hover;
+                    }
+                }
+            }
+            .liked{
+                color: #ccc;
+                font-size: 14px;
+            }
+        }
+    }
+    .detail-playlist-content{
+        flex: 1;
+        margin-left: 320px;
+    }
+}

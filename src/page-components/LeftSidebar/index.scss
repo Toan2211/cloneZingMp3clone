@@ -1,0 +1,14 @@
+@import '_setting.scss';
+.wrapper_left{
+    width: 240px;
+    .logo {
+        height: $header-height;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .logo-img{
+        display: block;
+        width: 120px;
+    }
+}

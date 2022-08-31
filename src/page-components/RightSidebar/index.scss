@@ -1,0 +1,44 @@
+@import '_setting.scss';
+.wrapper_rightsidebar{
+    color: white;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    .right-sidebar-header{
+        position: fixed;
+        padding: 14px 0;
+        height: $header-height;
+        .right-sidebar-title{
+            margin: 0;
+            padding: 0 8px;
+            font-size: 28px;
+        }
+    }
+    .right-sidebar-content{
+        overflow-y: auto;
+        margin: $header-height 0 100px 0;
+        /* width */
+        &::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        /* Track */
+        &::-webkit-scrollbar-track {
+            margin-top: 60px;
+            // box-shadow: inset 0 0 5px $link-text-hover; 
+            border-radius: 10px;
+        }
+        
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+            background: #5D5765;
+            border-radius: 5px;
+            height: 100px;
+        }
+        &::-webkit-scrollbar-thumb:hover {
+            background: #5D5765;
+        }
+    }
+
+}

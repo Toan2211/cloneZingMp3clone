@@ -1,0 +1,142 @@
+@import '_setting.scss';
+.song-item-container{
+    color: white;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    &:hover{
+        background-color: $hover-background-color;
+    }
+    .content-left{
+        flex: 5;
+        display: flex;
+        align-items: center;
+        .serial{
+            min-width: 60px;
+            opacity: 1;
+            -webkit-text-stroke: 1px white;
+            color: rgba(74, 144, 226, 0);
+            font-size: 32px;
+            font-weight: 900;
+            line-height: 1;
+            text-align: center;
+            white-space: nowrap;
+        }
+        .left-icon{
+            margin: 0 15px;
+            font-size: 20px;
+        }
+        .avatar{
+            position: relative;
+            height: 50px;
+            border-radius: 4px;
+            overflow: hidden;
+            cursor: pointer;
+            &-img{
+                width: 50px;
+                display: block;
+            }
+            .song-play-button{
+                position: absolute;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                &:hover{
+                    background-color: rgba(0, 0, 0, 0.5);
+                }
+
+            }
+        }
+        .song-item-info{
+            margin-left: 10px;
+            &-title{
+                display: flex;
+
+                .song-item-name{
+                    font-size: 18px;
+                    line-height: 1.3;
+                    text-transform: none;
+                    font-weight: 500;
+                    cursor: default;
+                    display: -webkit-box;
+                    overflow: hidden;
+                    -webkit-box-orient: vertical;
+                    -webkit-line-clamp: 1;
+                }
+            }
+            &-artists{
+                font-size: 14px;
+                color: #ccc;
+                line-height: 1.3;
+                text-transform: none;
+                display: -webkit-box;
+                overflow: hidden;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 1;
+                .name-singer{
+                    text-decoration: none;
+                    &:hover{
+                        text-decoration: underline;
+                        color: $link-text-hover;
+                    }
+                    color: #ccc;
+
+                }
+            }
+        }
+    }
+    .content-center{
+        flex: 4;
+        .name-album{
+            color: #ccc;
+            text-decoration: none;
+            line-height: 1.3;
+            text-transform: none;
+            display: -webkit-box;
+            overflow: hidden;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 1;
+            &:hover{
+                text-decoration: underline;
+                color: $link-text-hover;
+            }
+        }
+    }
+    .content-right{
+        font-size: 14px;
+        margin-right: 10px;
+    }
+
+}
+.mini{
+    & .content-center {
+        display: none;
+    }
+    & .song-item-info{
+        max-width: 158px;
+        &-title{
+            .song-item-name{
+                font-size: 14px !important;
+            }
+        }
+        &-artists{
+            font-size: 12px !important;
+        }
+    }
+    & .content-left {
+        flex: 1;
+    }
+}
+.currentSong {
+    background-color: #331659 !important;
+}
+.vip{
+    color: yellow;
+    font-size: 14px;
+    margin-left: 4px;
+}
+
