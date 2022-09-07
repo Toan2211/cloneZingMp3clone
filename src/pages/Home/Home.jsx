@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import PropTypes from 'prop-types'
 import Loading from 'components/Loading'
 import audioApi from 'api/audioAPI'
 import Section from 'components/Section'
@@ -7,7 +6,7 @@ import Item from 'components/Item'
 
 Home.propTypes = {}
 
-function Home(props) {
+function Home() {
     const [data, setData] = useState([])
     const [isLoading, setLoading] = useState(true)
 
@@ -18,27 +17,26 @@ function Home(props) {
                 setData(result.data.items)
                 document.title = 'Home'
                 setLoading(false)
-            }
-            catch (err) {
+            } catch (err) {
                 alert(err)
             }
         })()
     }, [])
     if (isLoading) return <Loading />
-    console.log(data)
     return (
         <div className="home-container">
-            {
-                data.filter(item => item.sectionType === 'playlist').map((item, index) => (
-                    <Section key={index} title = {item.title}>
-                        {
-                            item.items.map((itemPlayist) => (
-                                <Item data = {itemPlayist} key = {itemPlayist.encodeId}/>
-                            ))
-                        }
+            {data
+                .filter(item => item.sectionType === 'playlist')
+                .map((item, index) => (
+                    <Section key={index} title={item.title}>
+                        {item.items.map(itemPlayist => (
+                            <Item
+                                data={itemPlayist}
+                                key={itemPlayist.encodeId}
+                            />
+                        ))}
                     </Section>
-                ))
-            }
+                ))}
         </div>
     )
 }

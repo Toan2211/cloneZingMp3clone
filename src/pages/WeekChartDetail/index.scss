@@ -1,0 +1,40 @@
+@import '_setting.scss';
+.week-chart-detail-container {
+    .week-chart-detail-title {
+        color: white;
+        font-size: 38px;
+        font-weight: bold;
+    }
+    nav {
+        ul {
+            display: flex;
+            list-style: none;
+            font-size: 24px;
+            li {
+                .week-chart-detail-item-link {
+                    text-decoration: none;
+                    margin-right: 20px;
+                    line-height: 40px;
+                    font-weight: bold;
+                    color: white;
+                    padding: 10px 0;
+                    border-bottom: 2px solid transparent;
+                }
+            }
+        }        
+    }
+    .week-chart-detail-time {
+        color: white;
+        font-size: 20px;
+        font-weight: 600;
+        background-color: $hover-background-color;
+        padding: 10px;
+        max-width: 300px;
+        text-align: center;
+        border-radius: 30px;
+    }
+}
+.active {
+    border-color: $link-text-hover;
+    color: red !important;
+}

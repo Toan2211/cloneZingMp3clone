@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import PropTypes from 'prop-types'
 import Loading from 'components/Loading'
 import audioApi from 'api/audioAPI'
 import './index.scss'
 import SongItem from 'page-components/SongItem'
 import { useDispatch, useSelector } from 'react-redux'
 import { setCurrentIndexSongRandom, setCurrentTime, setCurrentIndexSong, setInfoSongPlayer, setIsPlay, setPlayListId, setPlaylistRandom, setPlaylistSong, setSongId, setSrcAudio } from 'redux/audioSlice'
-NewMusic.propTypes = {}
 
-function NewMusic(props) {
+function NewMusic() {
     const dispatch = useDispatch()
     const [isLoading, setLoading] = useState(true)
     const [data, setData] = useState({})
@@ -39,7 +37,6 @@ function NewMusic(props) {
     const handlePlaySong = (song, playList, id) => {
         dispatch(setCurrentTime(0))
         dispatch(setSrcAudio(''))
-        dispatch(setInfoSongPlayer(song))
         dispatch(setPlayListId(id))
         let playListPlay = playList.filter((item) => item.streamingStatus === 1)
         if (song.streamingStatus === 1) {

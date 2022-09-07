@@ -1,6 +1,43 @@
 @import '_setting.scss';
 .header{
+    margin-left: 30px;
     height: $header-height;
     display: flex;
     border-bottom: 1px solid #404040;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    .menu-mobile {
+        display: none;
+        &-btn {
+            color: white;
+            font-size: 36px;
+        }
+        &-listmenu {
+            z-index: 999;
+            position: absolute;
+            top: $header-height;
+            left: 0;
+            height: 78vh;
+            background-color: #231B2E;
+            margin-left: -30px;
+            transform: translateX( -100% );
+            opacity: 0;
+            transition: all 1s;
+
+            &.display{
+                display: block;
+                opacity: 1;
+                transform: translateX(0);
+                transition: all 1s;
+            }
+        }
+    }
+}
+@media only screen and (max-width: 768px) {
+    .header {
+        .menu-mobile {
+            display: block;
+        }
+    }
 }

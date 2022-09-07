@@ -40,7 +40,7 @@ function Category(props) {
     }, [])
 
     if (isLoading) return <Loading />
-    console.log(topic)
+    console.log('datacategpru', data.genre)
     return (
         <div className="category-container">
             <div className="category-topic">
@@ -59,9 +59,10 @@ function Category(props) {
             </div>
             <div className="genre">
                 {
-                    data.genre.map((section) => (
+                    data.genre.filter(section => section.encodeId !== 'IWZ9Z08C').map((section) => (
                         <Section key={section.encodeId} title = {section.title} btn = {true} data= {section} >
                             {
+                                section.playlists &&
                                 section.playlists.map((playlist) => (
                                     <Item key = {playlist.encodeId} data = {playlist}/>
                                 ))

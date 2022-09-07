@@ -1,12 +1,18 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import './index.scss'
 import { useDispatch, useSelector } from 'react-redux'
 import SongItem from 'page-components/SongItem'
-import { setCurrentIndexSong, setCurrentIndexSongRandom, setCurrentTime, setInfoSongPlayer, setIsPlay, setSongId, setSrcAudio } from 'redux/audioSlice'
-RightSidebar.propTypes = {}
+import {
+    setCurrentIndexSong,
+    setCurrentIndexSongRandom,
+    setCurrentTime,
+    setInfoSongPlayer,
+    setIsPlay,
+    setSongId,
+    setSrcAudio
+} from 'redux/audioSlice'
 
-function RightSidebar(props) {
+function RightSidebar() {
     const dispatch = useDispatch()
     const playlistSong = useSelector(
         state => state.audio.playlistSong
@@ -22,8 +28,12 @@ function RightSidebar(props) {
     const infoSongPlayer = useSelector(
         state => state.audio.infoSongPlayer
     )
-    const handleOnClick = (song) => {
-        dispatch(setCurrentIndexSongRandom(playlistSongRandom.indexOf(song)))
+    const handleOnClick = song => {
+        dispatch(
+            setCurrentIndexSongRandom(
+                playlistSongRandom.indexOf(song)
+            )
+        )
         dispatch(setCurrentIndexSong(playlistSong.indexOf(song)))
         dispatch(setInfoSongPlayer(song))
         dispatch(setSongId(song.encodeId))
@@ -31,8 +41,12 @@ function RightSidebar(props) {
         dispatch(setCurrentTime(0))
         dispatch(setIsPlay(true))
     }
-    const currentIndexSong = useSelector(state => state.audio.currentIndexSong)
-    const currentIndexSongRandom = useSelector(state => state.audio.currentIndexSongRandom)
+    const currentIndexSong = useSelector(
+        state => state.audio.currentIndexSong
+    )
+    const currentIndexSongRandom = useSelector(
+        state => state.audio.currentIndexSongRandom
+    )
     return (
         <div className="wrapper_rightsidebar">
             <div className="right-sidebar-header">
@@ -63,9 +77,7 @@ function RightSidebar(props) {
                                         song={song}
                                         index={index}
                                         onClick={() =>
-                                            handleOnClick(
-                                                song
-                                            )
+                                            handleOnClick(song)
                                         }
                                         type="mini"
                                     />
@@ -88,9 +100,7 @@ function RightSidebar(props) {
                                     song={song}
                                     index={index}
                                     onClick={() =>
-                                        handleOnClick(
-                                            song
-                                        )
+                                        handleOnClick(song)
                                     }
                                     type="mini"
                                 />

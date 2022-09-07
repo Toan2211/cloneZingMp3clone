@@ -28,6 +28,10 @@ const audioApi = {
     getCategoryDetail(id) {
         const url = `/category/${id}`
         return axiosClient.get(url)
+    },
+    getDataChartPage() {
+        const url = '/chart/home'
+        return axiosClient.get(url)
     }
 }
 export default audioApi

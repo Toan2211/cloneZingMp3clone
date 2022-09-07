@@ -1,9 +1,4 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
-Menu.propTypes = {
-    
-}
+import React from 'react'
 
 function Menu(props) {
     const { className, children } = props

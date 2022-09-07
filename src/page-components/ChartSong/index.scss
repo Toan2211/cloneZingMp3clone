@@ -1,0 +1,25 @@
+@import '_setting.scss';
+.chart-song-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    .chart-list-song {
+
+    }
+}
+
+.expand-button {
+    border: 1px solid white;
+    text-align: center;
+    border-radius: 10px;
+    width: 100px;
+    height: 40px;
+    color: white;
+    background-color: transparent;
+    &:hover {
+        color: $link-text-hover;
+        border: 1px solid $link-text-hover;
+    }
+    margin: 20px auto;
+    margin-left: auto;
+}

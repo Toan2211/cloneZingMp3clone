@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react'
-import PropTypes from 'prop-types'
+import React from 'react'
 import './index.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -10,7 +9,6 @@ import {
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { setIsPlay } from 'redux/audioSlice'
-SongItem.propTypes = {}
 
 function SongItem(props) {
     const dispatch = useDispatch()
@@ -18,16 +16,19 @@ function SongItem(props) {
     const isPlay = useSelector(state => state.audio.isPlay)
     const songId = useSelector(state => state.audio.songId)
     return (
-        <div className={`${type === 'mini' ? 'mini ':''}${className === 'currentSong' ? 'currentSong ':''}song-item-container`}
-            onDoubleClick = {onClick}
+        <div
+            className={`${type === 'mini' ? 'mini ' : ''}${
+                className === 'currentSong' ? 'currentSong ' : ''
+            }song-item-container`}
+            onDoubleClick={onClick}
         >
             <div className="content-left">
                 {serial && <p className="serial">{index + 1}</p>}
-                {serial &&
+                {serial && (
                     <div className="left-icon">
                         <FontAwesomeIcon icon={faGripLines} />
                     </div>
-                }
+                )}
                 <div className="avatar">
                     <img
                         src={song.thumbnail}
@@ -64,9 +65,10 @@ function SongItem(props) {
                         <span className="song-item-name">
                             {song.title}
                         </span>
-                        {
-                            songId.streamingStatus !==1 && !song.isWorldWide && <span className="vip">VIP</span>
-                        }
+                        {songId.streamingStatus !== 1 &&
+                            !song.isWorldWide && (
+                            <span className="vip">VIP</span>
+                        )}
                     </div>
                     <div className="song-item-info-artists">
                         {song.artists ? (

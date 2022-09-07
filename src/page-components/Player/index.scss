@@ -109,3 +109,20 @@
 .active{
     color: #B258D7 !important;
 }
+@media only screen and (max-width: 768px) {
+    .player-info {
+        &-img {
+            height: 40px !important;
+        }
+
+    }
+    .player-options, .range {
+        display: none !important;
+    }
+    .control-btn {
+        font-size: 12px !important;
+        &.play-btn{
+            font-size: 18px !important;
+        }
+    }
+}

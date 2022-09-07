@@ -1,0 +1,54 @@
+@import '_setting.scss';
+.week-chart-item-container {
+    width: 30%;
+    margin: 0 10px;
+    padding: 30px 10px;
+    border-radius: 10px;
+    background-color: #2C213E;
+    .week-chart-item-content {
+        display: flex;
+        flex-direction: column;
+        &__header {
+            padding: 20px 0;
+            &-link {
+                text-decoration: none;
+                text-align: center;
+                display: block;
+                font-size: 24px;
+                font-weight: bold;
+                color: white;
+                &:hover {
+                    color: $link-text-hover;
+                }
+            }
+        }
+        &__list-song {
+
+        }
+    }
+    .week-chart-item-btn {
+        margin: 20px auto;
+        padding: 10px;
+        background-color: transparent;
+        border: 1px solid white;
+        border-radius: 20px;
+        width: 60%;
+        &:hover {
+            border: 1px solid $link-text-hover;
+        }
+        &:hover .week-chart-item-content__link-btn {
+            color: $link-text-hover;
+        }
+        .week-chart-item-content__link-btn {
+            color: white;
+            text-decoration: none;
+        }
+    }
+
+}
+@media only screen and (max-width: 1024px) {
+    .week-chart-item-container {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+}

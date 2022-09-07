@@ -1,0 +1,25 @@
+.week-chart-container {
+    margin-top: 50px;
+    .week-chart-content {
+        .week-chart-title {
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            font-size: 40px;
+        }
+        .week-chart-list {
+            margin: 30px 0;
+            display: flex;
+        }
+    }
+}
+@media only screen and (max-width: 1024px) {
+    .week-chart-container {
+        .week-chart-content {
+            .week-chart-list {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+    }
+}

@@ -1,5 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
-import PropTypes from 'prop-types'
+import React, { useEffect, useRef } from 'react'
 import './index.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
@@ -26,9 +25,8 @@ import {
     setVolume
 } from 'redux/audioSlice'
 import audioApi from 'api/audioAPI'
-Player.propTypes = {}
 
-function Player(props) {
+function Player() {
     const dispatch = useDispatch()
     const playlistSong = useSelector(
         state => state.audio.playlistSong
@@ -115,34 +113,74 @@ function Player(props) {
             dispatch(setCurrentTime(0))
             dispatch(setIsPlay(false))
             if (isRandom) {
-                if (currentIndexSongRandom === playlistSongRandom.length -1)
-                {
+                if (
+                    currentIndexSongRandom ===
+                    playlistSongRandom.length - 1
+                ) {
                     dispatch(setCurrentIndexSongRandom(0))
-                    dispatch(setCurrentIndexSong(playlistSong.indexOf(playlistSongRandom[0])))
+                    dispatch(
+                        setCurrentIndexSong(
+                            playlistSong.indexOf(
+                                playlistSongRandom[0]
+                            )
+                        )
+                    )
                     dispatch(setInfoSongPlayer(playlistSongRandom[0]))
-                    dispatch(setSongId(playlistSongRandom[0].encodeId))
-                }
-                else
-                {
-                    dispatch(setCurrentIndexSongRandom(currentIndexSongRandom + 1))
-                    dispatch(setCurrentIndexSong(playlistSong.indexOf(playlistSongRandom[currentIndexSongRandom + 1])))
-                    dispatch(setInfoSongPlayer(playlistSongRandom[currentIndexSongRandom + 1]))
-                    dispatch(setSongId(playlistSongRandom[currentIndexSongRandom + 1].encodeId))
+                    dispatch(
+                        setSongId(playlistSongRandom[0].encodeId)
+                    )
+                } else {
+                    dispatch(
+                        setCurrentIndexSongRandom(
+                            currentIndexSongRandom + 1
+                        )
+                    )
+                    dispatch(
+                        setCurrentIndexSong(
+                            playlistSong.indexOf(
+                                playlistSongRandom[
+                                    currentIndexSongRandom + 1
+                                ]
+                            )
+                        )
+                    )
+                    dispatch(
+                        setInfoSongPlayer(
+                            playlistSongRandom[
+                                currentIndexSongRandom + 1
+                            ]
+                        )
+                    )
+                    dispatch(
+                        setSongId(
+                            playlistSongRandom[
+                                currentIndexSongRandom + 1
+                            ].encodeId
+                        )
+                    )
                 }
                 dispatch(setSrcAudio(''))
                 dispatch(setIsPlay(true))
             } else {
-                if (currentIndexSong === playlistSong.length -1)
-                {
+                if (currentIndexSong === playlistSong.length - 1) {
                     dispatch(setCurrentIndexSong(0))
                     dispatch(setInfoSongPlayer(playlistSong[0]))
                     dispatch(setSongId(playlistSong[0].encodeId))
-                }
-                else
-                {
-                    dispatch(setCurrentIndexSong(currentIndexSong + 1))
-                    dispatch(setInfoSongPlayer(playlistSong[currentIndexSong + 1]))
-                    dispatch(setSongId(playlistSong[currentIndexSong + 1].encodeId))
+                } else {
+                    dispatch(
+                        setCurrentIndexSong(currentIndexSong + 1)
+                    )
+                    dispatch(
+                        setInfoSongPlayer(
+                            playlistSong[currentIndexSong + 1]
+                        )
+                    )
+                    dispatch(
+                        setSongId(
+                            playlistSong[currentIndexSong + 1]
+                                .encodeId
+                        )
+                    )
                 }
                 dispatch(setSrcAudio(''))
                 dispatch(setIsPlay(true))
@@ -161,12 +199,12 @@ function Player(props) {
                 )
                 dispatch(
                     setInfoSongPlayer(
-                        playlistSongRandom[currentIndexSongRandom -1]
+                        playlistSongRandom[currentIndexSongRandom - 1]
                     )
                 )
                 dispatch(
                     setSongId(
-                        playlistSongRandom[currentIndexSongRandom -1]
+                        playlistSongRandom[currentIndexSongRandom - 1]
                             .encodeId
                     )
                 )
@@ -187,10 +225,14 @@ function Player(props) {
                 dispatch(setCurrentIndexSongRandom(-1))
                 dispatch(setCurrentIndexSong(currentIndexSong - 1))
                 dispatch(
-                    setInfoSongPlayer(playlistSong[currentIndexSong -1])
+                    setInfoSongPlayer(
+                        playlistSong[currentIndexSong - 1]
+                    )
                 )
                 dispatch(
-                    setSongId(playlistSong[currentIndexSong-1].encodeId)
+                    setSongId(
+                        playlistSong[currentIndexSong - 1].encodeId
+                    )
                 )
                 dispatch(setIsPlay(true))
                 dispatch(setSrcAudio(''))
@@ -201,7 +243,10 @@ function Player(props) {
         dispatch(setCurrentTime(0))
         audioRef.current.currentTime = 0
         if (isRandom) {
-            if (currentIndexSongRandom < playlistSongRandom.length - 1) {
+            if (
+                currentIndexSongRandom <
+                playlistSongRandom.length - 1
+            ) {
                 dispatch(
                     setCurrentIndexSongRandom(
                         currentIndexSongRandom + 1
@@ -223,15 +268,15 @@ function Player(props) {
                         playlistSong.findIndex(
                             item =>
                                 item.encodeId ===
-                                playlistSongRandom[currentIndexSongRandom + 1].encodeId
+                                playlistSongRandom[
+                                    currentIndexSongRandom + 1
+                                ].encodeId
                         )
                     )
                 )
                 dispatch(setIsPlay(true))
                 dispatch(setSrcAudio(''))
-            }
-            else
-            {
+            } else {
                 dispatch(setCurrentIndexSongRandom(0))
                 dispatch(setInfoSongPlayer(playlistSongRandom[0]))
                 dispatch(setSongId(playlistSongRandom[0].encodeId))
@@ -252,24 +297,22 @@ function Player(props) {
                 dispatch(setCurrentIndexSongRandom(-1))
                 dispatch(setCurrentIndexSong(currentIndexSong + 1))
                 dispatch(
-                    setInfoSongPlayer(playlistSong[currentIndexSong + 1])
+                    setInfoSongPlayer(
+                        playlistSong[currentIndexSong + 1]
+                    )
                 )
                 dispatch(
-                    setSongId(playlistSong[currentIndexSong + 1].encodeId)
+                    setSongId(
+                        playlistSong[currentIndexSong + 1].encodeId
+                    )
                 )
                 dispatch(setIsPlay(true))
                 dispatch(setSrcAudio(''))
-            }
-            else
-            {
+            } else {
                 dispatch(setCurrentIndexSongRandom(-1))
                 dispatch(setCurrentIndexSong(0))
-                dispatch(
-                    setInfoSongPlayer(playlistSong[0])
-                )
-                dispatch(
-                    setSongId(playlistSong[0].encodeId)
-                )
+                dispatch(setInfoSongPlayer(playlistSong[0]))
+                dispatch(setSongId(playlistSong[0].encodeId))
                 dispatch(setIsPlay(true))
                 dispatch(setSrcAudio(''))
             }
@@ -380,8 +423,8 @@ function Player(props) {
                                       infoSongPlayer.duration / 60
                                   )
                                 : Math.floor(
-                                      infoSongPlayer.duration / 60
-                                  )}
+                                    infoSongPlayer.duration / 60
+                                )}
                             :
                             {Math.floor(
                                 infoSongPlayer.duration % 60
@@ -391,8 +434,8 @@ function Player(props) {
                                       infoSongPlayer.duration % 60
                                   )
                                 : Math.floor(
-                                      infoSongPlayer.duration % 60
-                                  )}
+                                    infoSongPlayer.duration % 60
+                                )}
                         </span>
                     </div>
                 </div>

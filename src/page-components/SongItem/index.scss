@@ -1,5 +1,6 @@
 @import '_setting.scss';
 .song-item-container{
+    border-radius: 6px;
     color: white;
     padding: 12px;
     display: flex;
@@ -13,14 +14,14 @@
         display: flex;
         align-items: center;
         .serial{
-            min-width: 60px;
+            min-width: 36px;
             opacity: 1;
             -webkit-text-stroke: 1px white;
             color: rgba(74, 144, 226, 0);
             font-size: 32px;
             font-weight: 900;
             line-height: 1;
-            text-align: center;
+            // text-align: center;
             white-space: nowrap;
         }
         .left-icon{
@@ -29,6 +30,7 @@
         }
         .avatar{
             position: relative;
+            min-width: 50px;
             height: 50px;
             border-radius: 4px;
             overflow: hidden;
@@ -108,19 +110,23 @@
     }
     .content-right{
         font-size: 14px;
-        margin-right: 10px;
     }
 
 }
 .mini{
+    & .left-icon {
+        display: none;
+    }
     & .content-center {
         display: none;
     }
     & .song-item-info{
-        max-width: 158px;
+        // max-width: 70px;
         &-title{
             .song-item-name{
                 font-size: 14px !important;
+                max-width: 156px;
+
             }
         }
         &-artists{
@@ -139,4 +145,8 @@
     font-size: 14px;
     margin-left: 4px;
 }
-
+@media only screen and (max-width: 768px) {
+    .content-center {
+        display: none !important;
+    }
+}
