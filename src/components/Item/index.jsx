@@ -9,7 +9,7 @@ function Item(props) {
     return (
         <div
             className={`${
-                type === 'topic' ? 'col-3 col-xs-6 col-md-4 ' : 'col-2-4 col-xs-6 col-md-4 '
+                type === 'topic' ? 'col-3 col-xs-6 col-md-3 ' : 'col-2-4 col-xs-6 col-md-3 '
             }item`}
         >
             <div

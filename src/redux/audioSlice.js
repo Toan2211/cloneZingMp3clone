@@ -14,8 +14,6 @@ const initialState = {
     currentTime: 0,
     currentIndexSong: 0,
     currentIndexSongRandom: 0,
-    duration: 0,
-    autoPlay: false,
     infoSongPlayer: JSON.parse(localStorage.getItem('songInfo')) || {
         thumbnail: logozing,
         thumbnailM: logozing,
@@ -35,9 +33,7 @@ const audioSlice = createSlice({
         setIsPlay: (state, action) => {
             state.isPlay = action.payload
         },
-        setDuration: (state, action) => {
-            state.duration = action.payload
-        },
+
         setCurrentTime: (state, action) => {
             state.currentTime = action.payload
         },
@@ -54,22 +50,12 @@ const audioSlice = createSlice({
                 JSON.stringify(action.payload)
             )
         },
-        setRandom: (state, action) => {
-            state.isRandom = action.payload
-            localStorage.setItem(
-                'random',
-                JSON.stringify(action.payload)
-            )
-        },
         setInfoSongPlayer: (state, action) => {
             state.infoSongPlayer = { ...action.payload }
             localStorage.setItem(
                 'songInfo',
                 JSON.stringify({ ...action.payload })
             )
-        },
-        setAutoPlay: (state, action) => {
-            state.autoPlay = action.payload
         },
         setSongId: (state, action) => {
             state.songId = action.payload
@@ -125,13 +111,10 @@ const audioSlice = createSlice({
 export const {
     setIsPlay,
     setVolume,
-    setDuration,
     setCurrentTime,
     setSrcRadio,
     setSrcAudio,
-    setRandom,
     setInfoSongPlayer,
-    setAutoPlay,
     setSongId,
     setIsLoop,
     setIsRandom,

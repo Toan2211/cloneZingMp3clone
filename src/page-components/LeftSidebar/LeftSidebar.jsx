@@ -18,11 +18,18 @@ function LeftSidebar() {
     const handleonClickItem = () => {}
     return (
         <div className="wrapper_left">
-            <Link className="logo" to="/">
+            <Link className="logo logo-lg" to="/">
                 <img
                     src={images.logo}
                     alt="logo"
                     className="logo-img"
+                />
+            </Link>
+            <Link className="logo logo-md" to="/">
+                <img
+                    src = {require('assets/img/logozing.png')}
+                    alt="logozing"
+                    className="logo-img-md"
                 />
             </Link>
             <div className="menu">

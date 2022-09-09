@@ -465,9 +465,9 @@ function Player() {
                 </div>
             </div>
             <audio
-                isloop={isLoop.toString()}
+                loop={isLoop}
                 ref={audioRef}
-                autoPlay={true}
+                autoPlay={isPlay}
                 src={srcAudio}
                 onTimeUpdate={onTimeUpdate}
                 onEnded={handleOnEnded}

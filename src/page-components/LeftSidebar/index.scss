@@ -11,4 +11,24 @@
         display: block;
         width: 120px;
     }
+    .logo-md {
+        display: none;
+        background-color: red;
+        .logo-img-md {
+            width: 80px;
+            
+        }
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .wrapper_left {
+        width: 80px;
+        .logo-lg {
+            display: none;
+        }
+        .logo-md {
+            display: block;
+        }
+    }
 }

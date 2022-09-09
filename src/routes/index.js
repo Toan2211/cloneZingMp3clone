@@ -5,6 +5,7 @@ import DetailPlaylist from 'pages/DetailPlaylist'
 import Home from 'pages/Home/Home'
 import NewMusic from 'pages/NewMusic'
 import Radio from 'pages/Radio'
+import SearchResult from 'pages/SearchResult'
 import Top100 from 'pages/Top100'
 import WeekChartDetail from 'pages/WeekChartDetail'
 
@@ -45,14 +46,14 @@ const routes = [
         path: '/hub/:name/:id',
         component: DetailCategory
     },
-    // {
-    //     path: '/search/:keyword',
-    //     component: Search,
-    // },
+    {
+        path: '/search/:keyword',
+        component: SearchResult
+    },
     {
         path: '/:weekchart/:area/:id',
         component: WeekChartDetail
-    },
+    }
     // {
     //     path: '/nghe-si/:name',
     //     component: Artist,

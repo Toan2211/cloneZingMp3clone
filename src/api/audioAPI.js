@@ -32,6 +32,9 @@ const audioApi = {
     getDataChartPage() {
         const url = '/chart/home'
         return axiosClient.get(url)
+    },
+    getResultSearch(params) {
+        return axiosClient.get('/search', { params: params } )
     }
 }
 export default audioApi
