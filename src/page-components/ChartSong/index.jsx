@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import './index.scss'
 import SongItem from 'page-components/SongItem'
+import { useDispatch } from 'react-redux'
 
 function ChartSong(props) {
+    const dispatch = useDispatch()
     const { data, onClick } = props
     const [songList, setSongList] = useState(
         data.RTChart.items.slice(0, 10)
@@ -33,7 +35,8 @@ function ChartSong(props) {
                             onClick(
                                 song,
                                 data.RTChart.items,
-                                data.RTChart.sectionId
+                                data.RTChart.sectionId,
+                                dispatch
                             )
                         }
                     />

@@ -68,7 +68,22 @@
         margin-left: 320px;
     }
 }
+.play { 
+    border-radius: 50% !important;
+    .detail-playlist-img {
+        animation: musicPlay 7s linear infinite;
 
+    }
+}
+
+@keyframes musicPlay {
+    from {
+        transform:  rotate(0);
+    }
+    to {
+        transform:  rotate(360deg);
+    }
+}
 @media only screen and (max-width: 1200px) {
     .detail-playlist-container {
         display: flex !important;

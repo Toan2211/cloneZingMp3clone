@@ -2,8 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import SongItem from 'page-components/SongItem'
 import './index.scss'
+import { useDispatch } from 'react-redux'
 
 function WeekChartItem({ data, name, onClick }) {
+    const dispatch = useDispatch()
     const dataShow = data.items.slice(0, 5)
     return (
         <div className="week-chart-item-container">
@@ -29,7 +31,8 @@ function WeekChartItem({ data, name, onClick }) {
                                 onClick(
                                     item,
                                     data.items,
-                                    data.playlistId
+                                    data.playlistId,
+                                    dispatch
                                 )
                             }
                         />

@@ -3,8 +3,8 @@ import Loading from 'components/Loading'
 import audioApi from 'api/audioAPI'
 import './index.scss'
 import SongItem from 'page-components/SongItem'
-import { useDispatch, useSelector } from 'react-redux'
-import { setCurrentIndexSongRandom, setCurrentTime, setCurrentIndexSong, setInfoSongPlayer, setIsPlay, setPlayListId, setPlaylistRandom, setPlaylistSong, setSongId, setSrcAudio } from 'redux/audioSlice'
+import { useDispatch } from 'react-redux'
+import handlePlaySong from 'utils/handlePlaySong'
 
 function NewMusic() {
     const dispatch = useDispatch()
@@ -22,37 +22,6 @@ function NewMusic() {
             setLoading(false)
         })()
     }, [])
-    const shuffle = (array) => {
-        const arrayOri = [...array]
-        const arrShuffle = []
-        const length = arrayOri.length
-        while (arrShuffle.length < length) {
-            const index = Math.floor(Math.random() * arrayOri.length)
-            arrShuffle.push(arrayOri[index])
-            arrayOri.splice(index, 1)
-        }
-        return arrShuffle
-    }
-    const isRandom = useSelector((state) => state.audio.isRandom)
-    const handlePlaySong = (song, playList, id) => {
-        dispatch(setCurrentTime(0))
-        dispatch(setSrcAudio(''))
-        dispatch(setPlayListId(id))
-        let playListPlay = playList.filter((item) => item.streamingStatus === 1)
-        if (song.streamingStatus === 1) {
-            dispatch(setPlaylistSong(playListPlay))
-            dispatch(setInfoSongPlayer(song))
-            dispatch(setSongId(song.encodeId))
-            dispatch(setCurrentIndexSong(playListPlay.findIndex((item) => item.encodeId === song.encodeId)))
-            dispatch(setCurrentIndexSongRandom(-1))
-            dispatch(setIsPlay(true))
-            if (isRandom)
-                dispatch(setPlaylistRandom(shuffle(playListPlay)))
-        }
-        else {
-            alert('This is vip song')
-        }
-    }
     if (isLoading) return <Loading />
 
     return (
@@ -69,7 +38,7 @@ function NewMusic() {
                         serial={true}
                         song={item}
                         index={index}
-                        onClick={() => handlePlaySong (item, data.items, data.sectionId)}
+                        onClick={() => handlePlaySong (item, data.items, data.sectionId, dispatch)}
                     />
                 ))}
             </div>

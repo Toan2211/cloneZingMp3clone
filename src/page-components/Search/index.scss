@@ -60,11 +60,7 @@
         top: $header-height;
         z-index: 999;
         border-radius: 8px;
-        display: none;
     }
-}
-.show {
-    display: block !important;
 }
 
 @media screen and (max-width: 768px) {
@@ -73,7 +69,8 @@
             width: 100%;
         }
         .search-result-list-container {
-            width: 100%;
+            width: calc(100% + 80px);
+            margin-left: -80px;
         }
     }
 

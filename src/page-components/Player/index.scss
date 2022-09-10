@@ -24,6 +24,7 @@
                 margin-right: 10px;
             }
             &-name{
+                flex: 1;
                 &-artist{
                     font-size: 12px;
                 }
@@ -110,19 +111,26 @@
     color: #B258D7 !important;
 }
 @media only screen and (max-width: 768px) {
-    .player-info {
-        &-img {
-            height: 40px !important;
+    .player-container {
+        width: 100%;
+        .player {
+            .player-info {
+                // min-width: 160px;
+                &-img {
+                    height: 40px !important;
+                }
+            }
+        .player-control {
+            .control-btn {
+                font-size: 10px !important;
+                &.play-btn{
+                    font-size: 12px !important;
+                }
+            }
         }
-
-    }
-    .player-options, .range {
-        display: none !important;
-    }
-    .control-btn {
-        font-size: 12px !important;
-        &.play-btn{
-            font-size: 18px !important;
+        .player-options, .range {
+            display: none !important;
+        }
         }
     }
 }

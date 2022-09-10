@@ -20,20 +20,19 @@ import {
     setSongId,
     setSrcAudio
 } from 'redux/audioSlice'
+import useComponentVisible from 'hooks/useComponentVisible'
 
 function Search() {
+    const { ref, isComponentVisible, setIsComponentVisible } = useComponentVisible(true)
     const dispatch = useDispatch()
     const [searchValue, setSearchValue] = useState('')
-    const [showResult, setShowResult] = useState(false)
     const [searchResult, setSearchResult] = useState([])
     const inputRef = useRef(null)
     const handleOnChangeInput = e => {
         setSearchValue(e.target.value)
     }
-    const handleonFocusInput = () => setShowResult(true)
-    const handleOnBlurInput = () => setShowResult(false)
     const debouceValue = useDebounce(searchValue, 500)
-    const handleSearchIconClick = () => setShowResult(false)
+    const handleSearchIconClick = () => setIsComponentVisible(false)
     const handlePlaySong = song => {
         if (song.streamingStatus === 1 && song.isWorldWide) {
             dispatch(setCurrentTime(0))
@@ -49,7 +48,7 @@ function Search() {
             dispatch(setIsLoop(true))
             dispatch(setIsPlay(true))
         } else alert('THIS IS VIP SONG')
-        setShowResult(false)
+        setIsComponentVisible(false)
     }
     useEffect(() => {
         if (debouceValue === '') {
@@ -69,15 +68,13 @@ function Search() {
     }, [debouceValue])
     return (
         <div className="container-search">
-            <div className="search">
+            <div className="search" ref={ref}>
                 <input
                     ref={inputRef}
                     className="search-input"
                     placeholder="Nhập tên bài hát, nghệ sĩ hoặc MV..."
                     value={searchValue}
                     onChange={handleOnChangeInput}
-                    onFocus={handleonFocusInput}
-                    // onBlur={handleOnBlurInput}
                 />
                 <button className="search-btn">
                     <Link
@@ -89,22 +86,17 @@ function Search() {
                         <FontAwesomeIcon icon={faMagnifyingGlass} />
                     </Link>
                 </button>
-            </div>
-            <div
-                className={`${
-                    showResult
-                        ? 'search-result-list-container show'
-                        : 'search-result-list-container'
-                }`}
-            >
-                {searchResult.length > 0 &&
-                    searchResult.map(song => (
-                        <SongItem
-                            song={song}
-                            key={song.encodeId}
-                            onClick={() => handlePlaySong(song)}
-                        />
-                    ))}
+                {isComponentVisible && searchResult.length > 0 && (
+                    <div className="search-result-list-container">
+                        {searchResult.map(song => (
+                            <SongItem
+                                song={song}
+                                key={song.encodeId}
+                                onClick={() => handlePlaySong(song)}
+                            />
+                        ))}
+                    </div>
+                )}
             </div>
         </div>
     )

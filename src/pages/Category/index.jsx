@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import PropTypes from 'prop-types'
 import audioApi from 'api/audioAPI'
 import Loading from 'components/Loading'
 import Section from 'components/Section'
 import Item from 'components/Item'
 import './index.scss'
-Category.propTypes = {
 
-}
 
-function Category(props) {
+function Category() {
     const [data, setData] = useState([])
     const [topic, setTopic] = useState([])
     const [isLoading, setLoading] = useState(true)
@@ -40,7 +37,6 @@ function Category(props) {
     }, [])
 
     if (isLoading) return <Loading />
-    console.log('datacategpru', data.genre)
     return (
         <div className="category-container">
             <div className="category-topic">
