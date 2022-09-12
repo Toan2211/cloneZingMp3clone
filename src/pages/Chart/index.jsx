@@ -5,6 +5,7 @@ import audioApi from 'api/audioAPI'
 import ChartSong from 'page-components/ChartSong'
 import WeekChart from 'page-components/WeekChart'
 import handlePlaySong from 'utils/handlePlaySong'
+import ChartTop3Song from 'page-components/ChartTop3Song'
 
 
 function Chart() {
@@ -29,6 +30,7 @@ function Chart() {
             <header>
                 <h3 className="chart-header-title">ZingChart#</h3>
             </header>
+            <ChartTop3Song data = {data.RTChart}/>
             <ChartSong data={data} onClick={handlePlaySong} />
             <WeekChart
                 data={data.weekChart}
