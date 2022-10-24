@@ -44,6 +44,11 @@ function DetailPlaylist() {
         playListCanPlay = playListSong.filter(
             item => item.streamingStatus === 1 && item.isWorldWide
         )
+        if (playListCanPlay.length === 0)
+        {
+            alert('This is VIP playlist')
+            return
+        }
         const playListRandom = shuffle(playListCanPlay)
         dispatch(setPlayListId(playlistId))
         dispatch(setPlaylistSong(playListCanPlay))
